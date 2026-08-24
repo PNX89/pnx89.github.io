@@ -1,0 +1,58 @@
+name: Pages
+
+# Publishes index.html, the map at https://pnx89.github.io.
+#
+# This repository holds one generated page and nothing else, so the workflow builds nothing:
+# no Node, no network beyond the upload, and no token past GITHUB_TOKEN. The page is written
+# by the portfolio generator, which is deliberately not a repository and therefore cannot be
+# checked out here; what can be checked here is that the artefact is not empty, carries no
+# banned dash, and has no link pointing at a repository that does not exist. A map with a dead
+# link on it is worse than no map, because it is the page a CV points at.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Refuse to publish an empty page or one carrying a banned dash
+        # The dashes are written as their UTF-8 bytes: a check for a character must not be the
+        # thing that introduces it into a tree that is meant to stay ASCII.
+        run: |
+          test -s index.html || { echo "index.html is missing or empty"; exit 1; }
+          EM=$(printf '\xe2\x80\x94'); EN=$(printf '\xe2\x80\x93')
+          if LC_ALL=C grep -q -e "$EM" -e "$EN" index.html; then
+            echo "index.html contains an em or en dash"; exit 1
+          fi
+      - name: Refuse to publish a link that goes nowhere
+        run: |
+          fail=0
+          for url in $(grep -o 'href="https://[^"]*"' index.html | sed 's/href="//;s/"$//' | sort -u); do
+            code=$(curl -sSL -o /dev/null -w '%{http_code}' --max-time 20 "$url" || echo 000)
+            printf '%-46s %s\n' "$url" "$code"
+            [ "$code" = "200" ] || fail=1
+          done
+          exit $fail
+      - uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v5.0.0

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I build the second source</title>
+<meta name="description" content="What each of these repositories compares against what, and why.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg:#fbfbfa; --fg:#1a1a18; --muted:#55554e; --rule:#dedcd4; --accent:#7a4b12; --panel:#f4f3ee;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#16161a; --fg:#e9e8e3; --muted:#a2a19a; --rule:#2e2e34; --accent:#d9a441; --panel:#1c1c22; }
+  }
+  * { box-sizing:border-box }
+  body { margin:0; padding:4rem 1.25rem 6rem; background:var(--bg); color:var(--fg);
+         font:16px/1.65 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif }
+  main { max-width:50rem; margin:0 auto }
+  .who { color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.1em; margin:0 0 .75rem }
+  h1 { font-size:2.6rem; line-height:1.15; letter-spacing:-.025em; margin:0 0 1.5rem }
+  .lede { font-size:1.15rem; margin:0 0 1.25rem }
+  h2 { font-size:.8rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted);
+       font-weight:600; margin:3.5rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--rule) }
+  .group { margin:0 0 2rem }
+  .group h3 { font-size:1rem; line-height:1.45; font-weight:600; margin:0 0 .5rem; color:var(--fg) }
+  ul { list-style:none; padding:0; margin:0 }
+  li { padding:.4rem 0 .4rem 1rem; border-left:2px solid var(--rule) }
+  li a { font-weight:600 }
+  li span { display:block; color:var(--muted); font-size:.9rem }
+  table { width:100%; border-collapse:collapse; margin:0 }
+  th, td { text-align:left; vertical-align:top; padding:.7rem .75rem; border-bottom:1px solid var(--rule); font-size:.92rem }
+  th[scope=row] { width:9rem; font-weight:600; white-space:nowrap }
+  td em { color:var(--muted) }
+  .opt { display:inline-block; font-weight:400; font-size:.7rem; text-transform:uppercase;
+         letter-spacing:.06em; color:var(--muted); border:1px solid var(--rule); border-radius:3px; padding:0 .3rem }
+  .scroller { overflow-x:auto }
+  .note { background:var(--panel); border-left:3px solid var(--accent); padding:1rem 1.25rem; margin:2rem 0;
+          color:var(--muted); font-size:.9rem }
+  a { color:inherit; text-decoration-color:var(--accent); text-underline-offset:3px }
+  a:hover { color:var(--accent) }
+  footer { margin-top:4rem; padding-top:1.25rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.85rem }
+</style>
+</head>
+<body>
+<main>
+  <p class="who">Quelin Zammit</p>
+  <h1>I build the second source.</h1>
+
+  <p class="lede">Most of these repositories decide something by producing an independent second
+  artefact and comparing it against the first, rather than by asserting. A contract against the
+  page as it is served. A ledger against a settlement report. The same agent with the policy on
+  and off. It is the same move each time and it is deliberate, so it is better said here than
+  discovered on the fourth repository and mistaken for a formula.</p>
+
+  <p>Underneath all of it is one idea: designing for the failure that does not announce itself.
+  Systems that fail loudly are a solved problem. The expensive ones keep returning success.</p>
+
+  <h2>What each one compares against what</h2>
+  <div class="scroller">
+    <table>
+      <tr>
+        <th scope="row"><a href="https://github.com/PNX89/QUACKZ">QUACKZ</a></th>
+        <td>the audit's own recomputation against the returns the backtest claims</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="https://github.com/PNX89/QUOTEZ">QUOTEZ</a></th>
+        <td><em>none, and this is the exception</em></td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="https://github.com/PNX89/QUELLZ">QUELLZ</a></th>
+        <td>the bare agent against the same agent under containment</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="https://github.com/PNX89/QUIDZ">QUIDZ</a></th>
+        <td>the delivery stream against the ledger against the settlement report</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="https://github.com/PNX89/QUESTZ">QUESTZ</a></th>
+        <td>the recorded contract against the page as it is served today</td>
+      </tr>
+    </table>
+  </div>
+  <p class="note">4 of 5 carry the move.
+  QUOTEZ does not, and
+  saying so is the point: a thesis that survives only by leaving out the case that breaks it is
+  not a thesis. That repository argues something narrower instead, that a capability which does
+  not exist cannot be misused, and it has no second artefact because it has no write path at all.</p>
+
+  <h2>Grouped by what they argue</h2>
+    <section class="group">
+      <h3>A capability that does not exist cannot be misused</h3>
+      <ul>
+        <li>
+          <a href="https://pnx89.github.io/QUOTEZ/">QUOTEZ</a>
+          <span>market data an agent can read and cannot act on</span>
+        </li>
+        <li>
+          <a href="https://pnx89.github.io/QUELLZ/">QUELLZ</a>
+          <span>measuring what prompt-injection containment costs in utility as well as in attack rate</span>
+        </li>
+      </ul>
+    </section>
+    <section class="group">
+      <h3>A silent change in an external surface must become a loud stop</h3>
+      <ul>
+        <li>
+          <a href="https://pnx89.github.io/QUESTZ/">QUESTZ</a>
+          <span>stopping a scraper before it writes a CSV from a page that changed shape</span>
+        </li>
+      </ul>
+    </section>
+    <section class="group">
+      <h3>Repetition and disorder in delivery must not change the arithmetic</h3>
+      <ul>
+        <li>
+          <a href="https://pnx89.github.io/QUIDZ/">QUIDZ</a>
+          <span>refusing the outbound payment that would have gone out twice</span>
+        </li>
+      </ul>
+    </section>
+    <section class="group">
+      <h3>Selection and measurement: a number is only as good as what it counts and what it was selected from</h3>
+      <ul>
+        <li>
+          <a href="https://pnx89.github.io/QUACKZ/">QUACKZ</a>
+          <span>deflating a backtest that only looks good because it was picked out of two hundred</span>
+        </li>
+      </ul>
+    </section>
+
+  <h2>The technology view</h2>
+  <div class="scroller">
+    <table>
+      <tr><th scope="row">Python 3.11 to 3.14</th><td>every repository, every version tested in CI</td></tr>
+      <tr><th scope="row">pytest</th><td>the suites, offline and deterministic in all five</td></tr>
+      <tr><th scope="row">ruff and mypy</th><td>lint, format and types, all three gating every push</td></tr>
+      <tr><th scope="row">GitHub Actions</th><td>the matrix, and the Pages deployment behind each card</td></tr>
+      <tr><th scope="row">uv</th><td>resolution and the lockfile, one command from clone to output</td></tr>
+      <tr>
+        <th scope="row">anthropic <span class="opt">optional</span></th>
+        <td><strong>QUELLZ</strong> a real model behind the same interface the fixture implements</td>
+      </tr>
+      <tr>
+        <th scope="row">fastapi <span class="opt">optional</span></th>
+        <td><strong>QUIDZ</strong> the one module allowed to import a web framework</td>
+      </tr>
+      <tr>
+        <th scope="row">greenlet <span class="opt">optional</span></th>
+        <td><strong>QUESTZ</strong> Playwright's sync API</td>
+      </tr>
+      <tr>
+        <th scope="row">mcp</th>
+        <td><strong>QUOTEZ</strong> the Model Context Protocol server an agent connects to</td>
+      </tr>
+      <tr>
+        <th scope="row">MetaTrader5 <span class="opt">optional</span></th>
+        <td><strong>QUOTEZ</strong> the live market data terminal, behind an optional extra</td>
+      </tr>
+      <tr>
+        <th scope="row">numpy</th>
+        <td><strong>QUACKZ</strong> the arithmetic behind every backtest verdict</td>
+      </tr>
+      <tr>
+        <th scope="row">pandas</th>
+        <td><strong>QUACKZ</strong> return series and resampling</td>
+      </tr>
+      <tr>
+        <th scope="row">playwright <span class="opt">optional</span></th>
+        <td><strong>QUESTZ</strong> a real browser for the end to end leg</td>
+      </tr>
+      <tr>
+        <th scope="row">pydantic <span class="opt">optional</span></th>
+        <td><strong>QUIDZ</strong> request models on that boundary</td>
+      </tr>
+      <tr>
+        <th scope="row">uvicorn <span class="opt">optional</span></th>
+        <td><strong>QUIDZ</strong> the ASGI server, needed only to bind a socket</td>
+      </tr>
+    </table>
+  </div>
+  <p class="note">Read out of each repository's own <code>pyproject.toml</code> when this page was
+  built, not typed here. A dependency with no recorded role stops the build rather than being
+  quietly dropped, because a list that omits what it does not recognise is worse than no list.</p>
+
+  <h2>What is not here</h2>
+  <p>This shows what is published. Every card on it is a repository you can clone, run offline in
+  under a minute, and check against its own claims; there is no link on this page that goes
+  nowhere, and no entry for work that is planned rather than shipped. More is being built, and it
+  appears here when it exists and not before.</p>
+
+  <footer>
+    Source for every card is on <a href="https://github.com/PNX89">github.com/PNX89</a>.
+    This page is generated from one manifest, and so is every card it links to.
+  </footer>
+</main>
+</body>
+</html>
